@@ -1,28 +1,16 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
 export default function Home() {
   return (
     <>
-         <Navbar/>
-         <main>
-            <section className="hero">
+      <Navbar />
+      <main>
+        <Hero />
+      </main>
 
-            </section>
-            <section className="categories">
+      <footer className="footer">
 
-            </section>
-            <section className="featured-books">
-
-            </section>
-            <section className="how-it-works">
-
-            </section>
-            <section className="why-KitabCycle">
-
-            </section>
-         </main>
-         <footer className="footer">
-
-         </footer>
+      </footer>
     </>
   )
 }
