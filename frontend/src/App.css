@@ -1,7 +1,3 @@
-/* ==========================================================================
-   App.css — Navbar
-   ========================================================================== */
-
 .navbar {
   display: flex;
   align-items: center;
@@ -14,8 +10,6 @@
   top: 0;
   z-index: 100;
 }
-
-/* ---- Logo ---- */
 .navbarlogo {
   display: flex;
   align-items: center;
@@ -24,8 +18,8 @@
 
 .navbarlogo .logo {
   height: 40px;
-  width: 600px;       /* let width scale naturally with the image's aspect ratio */
-  max-width: 200px;   /* room to grow since it's a wide logo */
+  width: 600px;      
+  max-width: 200px;  
   object-fit: contain;
 }
 
@@ -36,8 +30,6 @@
   letter-spacing: -0.3px;
   white-space: nowrap;
 }
-
-/* ---- Center links ---- */
 .navbar-links {
   display: flex;
   align-items: center;
@@ -54,16 +46,11 @@
 .navbar-links a:hover {
   color: var(--color-primary);
 }
-
-/* ---- Right side: Signup / Login ---- */
 .navbar-signup-login {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
-/* Login = outlined button (comes second in markup but styled as the
-   secondary/outline action to match the design) */
 .navbar-signup-login a[href="/login"] {
   padding: 8px 18px;
   font-size: 14px;
@@ -94,8 +81,6 @@
 .navbar-signup-login a[href="/signup"]:hover {
   background-color: var(--color-primary-dark);
 }
-
-/* ---- Responsive ---- */
 @media (max-width: 768px) {
   .navbar {
     padding: 0 20px;
@@ -105,10 +90,6 @@
     display: none; /* hook up a mobile menu toggle later */
   }
 }
-/* ==========================================================================
-   Hero.css — Hero section (full-bleed background image behind content)
-   ========================================================================== */
-
 .hero {
   position: relative;
   display: flex;
@@ -279,5 +260,406 @@
   .hero-actions {
     justify-content: center;
     flex-wrap: wrap;
+  }
+}
+.categories {
+  padding: 56px var(--container-padding);
+}
+
+.categories-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.categories-header .tagline h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.categories-header .tagline p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+  margin-top: 6px;
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 28px 12px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  text-align: center;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.category-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.category-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.category-card:nth-child(1) .category-icon {
+  background: #dbe9fb;
+  color: #2f6fce;
+}
+
+.category-card:nth-child(2) .category-icon {
+  background: #fbdde3;
+  color: #d6486b;
+}
+
+.category-card:nth-child(3) .category-icon {
+  background: #fdecc8;
+  color: #c98a1f;
+}
+
+.category-card:nth-child(4) .category-icon {
+  background: #e6dcfb;
+  color: #7c4fd6;
+}
+
+.category-card:nth-child(5) .category-icon {
+  background: #d9f2e3;
+  color: #2f9e5c;
+}
+
+.category-card:nth-child(6) .category-icon {
+  background: #dbeafe;
+  color: #2f6fce;
+}
+
+.category-card:nth-child(7) .category-icon {
+  background: #eceff1;
+  color: #55606b;
+}
+
+@media (max-width: 1100px) {
+  .category-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .categories-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .category-card {
+    padding: 20px 8px;
+  }
+}
+.featured-books {
+  padding: 56px var(--container-padding);
+}
+
+.featured-books-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.featured-books-header .tagline h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.featured-books-header .tagline p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.view-all-books {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+  margin-top: 6px;
+}
+
+.view-all-books:hover {
+  text-decoration: underline;
+}
+
+/* Grid of book cards */
+.featured-books-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.featured-books--card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.featured-books--card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+/* Cover area */
+.book-cover {
+  position: relative;
+  height: 200px;
+  background: var(--color-bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-cover-placeholder {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.wishlist-btn:hover {
+  color: #d6486b;
+  border-color: #d6486b;
+}
+
+/* Info area */
+.featured-books-info {
+  padding: 14px 16px 18px;
+}
+
+.featured-books-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.book-author {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.book-condition {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.book-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .featured-books-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .featured-books-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .featured-books-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .featured-books-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.work-section {
+  padding: 56px var(--container-padding);
+}
+
+.work-section-header {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.work-section-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.work-section-header p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Grid of steps */
+.work-section-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.work-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.work-step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+/* Per-step colors, matching the categories palette */
+.work-step:nth-child(1) .work-step-icon {
+  background: #dbe9fb;
+  color: #2f6fce;
+}
+
+.work-step:nth-child(2) .work-step-icon {
+  background: #e6dcfb;
+  color: #7c4fd6;
+}
+
+.work-step:nth-child(3) .work-step-icon {
+  background: #d9f2e3;
+  color: #2f9e5c;
+}
+
+.work-step:nth-child(4) .work-step-icon {
+  background: #fdecc8;
+  color: #c98a1f;
+}
+
+.work-step h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.work-step p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  max-width: 220px;
+}
+
+/* Arrow connecting steps, positioned between cards */
+.work-step-arrow {
+  position: absolute;
+  top: 28px;
+  right: -12px;
+  color: var(--color-text-muted);
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .work-section-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 16px;
+  }
+
+  .work-step-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-section-grid {
+    grid-template-columns: 1fr;
   }
 }
