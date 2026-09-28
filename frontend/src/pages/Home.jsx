@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import FeaturedBooks from "../components/FeaturedBooks";
 import WorkSection from "../components/WorkSection";
+import WhySection from "../components/WhySection";
 export default function Home() {
   return (
     <>
@@ -12,6 +13,7 @@ export default function Home() {
         <Categories/>
         <FeaturedBooks/>
         <WorkSection/>
+        <WhySection/>
       </main>
       <footer className="footer">
       </footer>

@@ -663,3 +663,131 @@
     grid-template-columns: 1fr;
   }
 }
+.why-section {
+  padding: 28px var(--container-padding);
+  background: #e9f8ef;
+}
+
+.why-section-header {
+  margin-bottom: 20px;
+}
+
+.why-section-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.why-section-header p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+
+/* Benefits grid */
+
+.why-section-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+
+/* Individual benefit */
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+
+/* Icon circle */
+
+.step-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #c9f0d8;
+  color: #18824b;
+}
+
+
+/* Different icon colors */
+
+.step:nth-child(1) .step-icon {
+  background: #c9f0d8;
+  color: #18824b;
+}
+
+.step:nth-child(2) .step-icon {
+  background: #c9f0d8;
+  color: #18824b;
+}
+
+.step:nth-child(3) .step-icon {
+  background: #c9f0d8;
+  color: #18824b;
+}
+
+.step:nth-child(4) .step-icon {
+  background: #c9f0d8;
+  color: #18824b;
+}
+
+
+/* Text */
+
+.step-content {
+  padding-top: 2px;
+}
+
+.step-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.step p {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  max-width: 150px;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .why-section-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .why-section {
+    padding: 40px 20px;
+  }
+
+  .why-section-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+}
