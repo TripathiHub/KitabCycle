@@ -915,3 +915,211 @@
 .google-icon {
   flex-shrink: 0;
 }
+/* ===== Signup page ===== */
+.signup {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 20px;
+  background: #e9f8ef; /* same soft green as the "Why" section */
+}
+
+/* Brand header */
+.signup-header {
+  text-align: center;
+}
+
+.signup-header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.signup-header h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Card */
+.signup-card {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 36px 32px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.signup-card h3:first-child {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.signup-card h3:nth-child(2) {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.signup-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.signup-footer a {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.signup-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 28px 20px;
+  }
+
+  .signup-header h1 {
+    font-size: 1.85rem;
+  }
+
+  .signup-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+/* ===== Site footer ===== */
+.footer {
+  background: #0a3d2e;
+  color: #ffffff;
+  border-radius: 16px;
+  margin: 28px var(--container-padding) 24px;
+  overflow: hidden;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 32px;
+  padding: 40px 40px 32px;
+}
+
+/* Brand column */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-brand .navbarlogo {
+  gap: 10px;
+}
+
+.footer .brand-name {
+  color: #ffffff;
+}
+
+.footer-brand p {
+  font-size: 0.8rem;
+  color: #b7d6c8;
+}
+
+/* Link columns */
+.footer-column h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.footer-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-column a {
+  font-size: 0.78rem;
+  color: #b7d6c8;
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+}
+
+/* Social icons */
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-social-icons a {
+  display: inline-flex;
+  color: #ffffff;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social-icons a:hover {
+  color: #8fd6b4;
+  transform: translateY(-2px);
+}
+
+/* Bottom bar */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.75rem;
+  color: #b7d6c8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 32px 24px 24px;
+  }
+
+  .footer-bottom {
+    padding: 14px 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
