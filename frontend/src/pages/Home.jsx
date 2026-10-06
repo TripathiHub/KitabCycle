@@ -7,16 +7,14 @@ import WhySection from "../components/WhySection";
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <main>
-        <Hero />
+        <Hero/>
         <Categories/>
         <FeaturedBooks/>
         <WorkSection/>
         <WhySection/>
       </main>
-      <footer className="footer">
-      </footer>
     </>
   )
 }

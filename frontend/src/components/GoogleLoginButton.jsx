@@ -1,21 +1,24 @@
-import { useEffect } from "react";
-import { googleProvider, auth } from "../firebase";
-import { signInWithRedirect, getRedirectResult } from "firebase/auth";
+import { googleProvider, auth } from "../firebase";;
+import { signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 export default function GoogleLoginButton() {
-    function handleGoogleLogin() {
-        signInWithRedirect(auth, googleProvider);
-    }
-    async function handleRedirectResults() {
+    const navigate = useNavigate();
+    async function handleGoogleLogin() {
         try {
-            const result = await getRedirectResult(auth);
+            const result = await signInWithPopup(auth, googleProvider);
             console.log("Google result:", result);
-        } catch (error) {
-            console.error("Google login error:", error);
+            console.log("Firebase user:", result.user);
+            console.log("UID:", result.user.uid);
+            console.log("Email:", result.user.email);
+            console.log("Name:", result.user.displayName);
+            if (result) {
+                navigate("/");
+            }
+        }
+        catch (err) {
+            console.log(err);
         }
     }
-    useEffect(() => {
-        handleRedirectResults();
-    }, [])
     return (
         <>
             <button onClick={handleGoogleLogin} className="login-google-button">
