@@ -10,7 +10,7 @@ export default function Signup() {
             <div className="signup-card">
                 <h3>Welcome to KitabCycle</h3>
                 <h3>Signup to continue to KitabCycle</h3>
-                <GoogleLoginButton/>
+                <GoogleLoginButton navigateTo="/create-profile"/>
             </div>
             <div className="signup-footer">
                 <span>Already have an acoount on KitabCycle ?</span>

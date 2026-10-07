@@ -1,18 +1,14 @@
 import { googleProvider, auth } from "../firebase";;
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-export default function GoogleLoginButton() {
+import { useState } from "react";
+export default function GoogleLoginButton({ navigateTo }) {
     const navigate = useNavigate();
     async function handleGoogleLogin() {
         try {
             const result = await signInWithPopup(auth, googleProvider);
-            console.log("Google result:", result);
-            console.log("Firebase user:", result.user);
-            console.log("UID:", result.user.uid);
-            console.log("Email:", result.user.email);
-            console.log("Name:", result.user.displayName);
             if (result) {
-                navigate("/");
+                navigate(navigateTo);
             }
         }
         catch (err) {

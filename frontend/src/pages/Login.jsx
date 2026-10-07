@@ -10,7 +10,7 @@ export default function Login() {
             <div className="login-card">
                 <h3>Welcome Back </h3>
                 <h3>Login to continue to KitabCycle</h3>
-                 <GoogleLoginButton/>
+                 <GoogleLoginButton navigateTo="/"/>
             </div>
             <div className="login-footer">
                  <span>New to KitabCycle ?</span>
