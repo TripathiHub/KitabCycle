@@ -21,9 +21,47 @@ export default function CreateProfile() {
       [name]: value
     }))
   }
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(profile);
+  async function handleSubmit(e) {
+     e.preventDefault();
+    const user = auth.currentUser;
+    if (!user) {
+      alert("please login first");
+      return 
+    }
+    const token = await user.getIdToken();
+    const payload = {
+      name: profile.name,
+      age: Number(profile.age),
+      gender: profile.gender,
+      education: {
+        institutionName: profile.institution,
+        institutionType: profile.educationType,
+        department: profile.department,
+        standardOrSemester:
+          profile.educationType === "college"
+            ? profile.semester
+            : profile.standard,
+        passingYear: Number(profile.passingYear)
+      }
+    };
+    try{
+     const response = await fetch("http://localhost:5000/api/users/create-profile",{
+      method : "POST",
+      headers : {
+       "Content-Type" : "application/json",
+       "Authorization" : `Bearer ${token}`
+      },
+      body : JSON.stringify(payload)
+    })
+    if(!response.ok){
+      throw new Error(data.message);
+    }
+    const data =  await response.json();
+    console.log(data);
+    } catch(error){
+      console.error(error);
+    }
+   
   }
   return (
     <>
@@ -32,12 +70,12 @@ export default function CreateProfile() {
           <h1>Complete Your KitabCycle Profile</h1>
           <p>Tell us a little about yourself so we can personalize your book experience.</p>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="create-profile-card">
             <div className="profile-field">
               <label>Name</label>
               <input
-              id="name"
+                id="name"
                 type="text"
                 name="name"
                 value={profile.name}
@@ -48,14 +86,14 @@ export default function CreateProfile() {
             </div>
             <div className="profile-field">
               <label>Email</label>
-              <input 
-              id="email"
-              type="text"
-              name="email"
-              value={profile.email}
-              onChange={handleChange}
-              placeholder="Enter youe email"
-              required
+              <input
+                id="email"
+                type="text"
+                name="email"
+                value={profile.email}
+                onChange={handleChange}
+                placeholder="Enter youe email"
+                required
               />
             </div>
             <div className="profile-field">
@@ -80,10 +118,10 @@ export default function CreateProfile() {
                 onChange={handleChange}
               >
                 <option value="">Select gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-                <option value="prefer-not-to-say">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+                <option value="Prefer-not-to-say">
                   Prefer not to say
                 </option>
               </select>
@@ -110,7 +148,7 @@ export default function CreateProfile() {
 
             <div className="profile-field">
               <label htmlFor="institution">
-               {profile.educationType=="school" ? "School name" : "College name"}
+                {profile.educationType == "school" ? "School name" : "College name"}
               </label>
 
               <input
@@ -119,7 +157,7 @@ export default function CreateProfile() {
                 type="text"
                 value={profile.institution}
                 onChange={handleChange}
-                placeholder={profile.educationType=="school" ? "Enter your school name" : "Enter your college name"}
+                placeholder={profile.educationType == "school" ? "Enter your school name" : "Enter your college name"}
               />
             </div>
             {profile.educationType === "college" && (
@@ -208,12 +246,12 @@ export default function CreateProfile() {
                 type="number"
                 value={profile.passingYear}
                 onChange={handleChange}
-                placeholder={profile.educationType=="school" ? "eg. 2027" : "eg. 2029" }
+                placeholder={profile.educationType == "school" ? "eg. 2027" : "eg. 2029"}
               />
             </div>
           </div>
           <div className="create-profile-submit-btn">
-            <button onClick={handleSubmit}>Create Profile</button>
+            <button type="submit">Create Profile</button>
           </div>
         </form>
       </section>
