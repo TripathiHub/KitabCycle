@@ -53,10 +53,10 @@ export default function CreateProfile() {
       },
       body : JSON.stringify(payload)
     })
+    const data =  await response.json();
     if(!response.ok){
       throw new Error(data.message);
     }
-    const data =  await response.json();
     console.log(data);
     } catch(error){
       console.error(error);
